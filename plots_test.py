@@ -13,9 +13,16 @@ def lab_average_test_None():
     assert(plots.lab_average('data/grades_010.csv', 'Bob', 'Bobson') == None)
     print ("Lab_average_test_None passed...")
 
+def get_average_test_Lab6():
+    testing.assert_floats('get_average', 67.77, plots.get_average('data/grades_010.csv', 'Lab 6'), 0.05, True)
+
+def get_average_test_Lab7():
+    testing.assert_floats('get_average', 82.61, plots.get_average('data/grades_010.csv', 'Lab 7'), 0.05, True)
+
 def main():
     #lab_average_test()
-    lab_average_test_None()
+    #lab_average_test_None()
+    get_average_test_Lab6()
 
 if __name__ == '__main__':
     main()

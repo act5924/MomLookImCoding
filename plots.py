@@ -20,3 +20,5 @@ def lab_average(filename, first, last):
                 return total_grade/8
         return None
 
+def get_average(filename, grade_item):
+    pass
