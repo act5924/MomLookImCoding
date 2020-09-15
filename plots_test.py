@@ -21,6 +21,7 @@ def get_average_test_Lab3():
 
 def get_average_test_None():
     assert(plots.get_average('data/grades_010.csv', 'Lab 137') == None)
+    print ("get_average_test_None passed...")
 
 def main():
     #lab_average_test()

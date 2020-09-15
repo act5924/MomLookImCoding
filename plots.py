@@ -37,16 +37,16 @@ def getcol(grade_item):
         return 8
     if grade_item == 'Lab 8':
         return 9
-    #else:
-        #return None
+    else:
+        return None
 
 
 def get_average(filename, grade_item):
     with open(filename) as file:
         header_fields = next(file).split(',')
         col = getcol(grade_item)
-        #if col == None:
-            #return None
+        if col == None:
+            return None
         total_grade = 0
         count = 0
         for line in file:
