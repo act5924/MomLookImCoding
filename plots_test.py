@@ -23,12 +23,20 @@ def get_average_test_None():
     assert(plots.get_average('data/grades_010.csv', 'Lab 137') == None)
     print ("get_average_test_None passed...")
 
+def plot_grades_test_Sion():
+    assert(plots.plot_grades('data/grades_010.csv', 'Sion', 'Lobasso') == True)
+
+def plot_grades_test_Jasmin():
+    assert(plots.plot_grades('data/grades_363.csv', 'Jasmin', 'Skroch') == True)
+
 def main():
     #lab_average_test()
     #lab_average_test_None()
     #get_average_test_Lab6()
     #get_average_test_Lab3()
-    get_average_test_None()
+    #get_average_test_None()
+    plot_grades_test_Sion()
+    plot_grades_test_Jasmin()
 
 if __name__ == '__main__':
     main()

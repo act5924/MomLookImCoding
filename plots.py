@@ -2,6 +2,8 @@
    Assignment 5.1
    Arthur Tonoyan
 '''
+import plotter
+
 
 def lab_average(filename, first, last):
     with open(filename) as file:
@@ -56,3 +58,20 @@ def get_average(filename, grade_item):
             total_grade += float(fields[col])
             count += 1
         return total_grade/count
+
+def plot_grades(filename, first, last):
+    with open(filename) as file:
+        header_fields = next(file).split(',')
+        plotter.init(str(first) + ' ' + str(last), "Labs", "Score")
+        for line in file:
+            col = 2
+            fields = line.split(',')
+            if fields[0] == last and fields[1] == first:
+                for i in range(len(fields) - 2):
+                    plotter.add_data_point(float(fields[col]))
+                    col += 1
+                plotter.plot()
+                var = input('Enter to quit: ')
+                return True
+        
+        return False
