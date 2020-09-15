@@ -84,7 +84,7 @@ def plot_grades(filename, first, last):
                     plotter.add_data_point(float(fields[col]))
                     col += 1
                 plotter.plot()
-                var = input('Enter to quit: ')
+                var = input('Enter to continue: ')
                 return True
         
         return False
@@ -98,7 +98,12 @@ def plot_class_averages(filename):
             plotter.add_data_point(float(get_average_new(filename, col)))
             col += 1
         plotter.plot()
-        var = input('Enter to quit: ')
+        var = input('Enter to continue: ')
 
-plot_class_averages('data/grades_010.csv')
-plot_class_averages('data/grades_363.csv')
+def main():
+    plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
+    plot_class_averages('data/grades_010.csv')
+    plot_class_averages('data/grades_363.csv')
+
+if __name__ == '__main__':
+    main()
