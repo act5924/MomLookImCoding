@@ -19,11 +19,15 @@ def get_average_test_Lab6():
 def get_average_test_Lab3():
     testing.assert_floats('get_average', 82.61, plots.get_average('data/grades_010.csv', 'Lab 3'), 0.05, True)
 
+def get_average_test_None():
+    assert(plots.get_average('data/grades_010.csv', 'Lab 137') == None)
+
 def main():
     #lab_average_test()
     #lab_average_test_None()
     #get_average_test_Lab6()
-    get_average_test_Lab3()
+    #get_average_test_Lab3()
+    get_average_test_None()
 
 if __name__ == '__main__':
     main()
