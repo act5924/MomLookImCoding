@@ -28,6 +28,8 @@ def get_average(filename, grade_item):
         count = 0
         for line in file:
             fields = line.split(',')
-            total_grade += int(fields[col])
+            if fields[col] == '':
+                fields[col] = 0
+            total_grade += float(fields[col])
             count += 1
         return total_grade/count
