@@ -3,5 +3,22 @@
    Arthur Tonoyan
 '''
 
-def lab_average(filename):
-    return 0
+def lab_average(filename, first, last):
+    with open(filename) as file:
+        header_fields = next(file).split(',')
+        total_grade = 0
+        #count = 0
+        for line in file:
+            fields = line.split(',')
+            col = 2
+            if fields[0] == last and fields[1] == first:
+                for i in range(8):
+                    #print (total_grade)
+                    #print (fields[col])
+                    total_grade += float((fields[col]))
+                    #count += 1
+                    col += 1
+        #print (total_grade)
+        #print (count)
+        return total_grade/8
+

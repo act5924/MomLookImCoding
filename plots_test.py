@@ -7,7 +7,7 @@ import plots
 import testing
 
 def lab_average_test():
-    testing.assert_floats('lab_average', 80.66, plots.lab_average('data/grades_010.csv'))
+    testing.assert_floats('lab_average', 80.66, plots.lab_average('data/grades_010.csv', 'Sion', 'Lobasso'), 0.05, True)
 
 def main():
     lab_average_test()
