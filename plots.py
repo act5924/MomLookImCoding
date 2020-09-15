@@ -21,4 +21,13 @@ def lab_average(filename, first, last):
         return None
 
 def get_average(filename, grade_item):
-    pass
+    with open(filename) as file:
+        header_fields = next(file).split(',')
+        col = int(grade_item[-1]) + 1
+        total_grade = 0
+        count = 0
+        for line in file:
+            fields = line.split(',')
+            total_grade += int(fields[col])
+            count += 1
+        return total_grade/count
