@@ -2,7 +2,27 @@
 Arthur Tonoyan
 Assignment 5.2
 '''
+import plots
 
+def student_average():
+    while True:
+        lst = input('Enter the... File FirstName LastName (Enter to go back): ')
+        bst = lst.split()
+        if lst == '':
+            return True
+        try:
+            if plots.plot_grades(bst[0], bst[1], bst[2]) == True:
+                print ('Plot finished (window may be hidden)')
+                return True
+            else:
+                print ('Plot failed (no such student)')
+                True
+        except FileNotFoundError:
+            print ('No such file: ' + str(bst[0]))
+            True
+        except IndexError:
+            print ('Usage for stu: <filename> (space) <first name> (space) <last name>')
+            True
 
 
 def quit():
@@ -14,21 +34,22 @@ def quit():
     
 def main():
     print ('>> ')
-    print ('Enter a command or \'quit\' to quit')
-    command = input('>> ')
-    command_split = command.split()
     while True:
+        print ('Enter a command or \'quit\' to quit')
+        command = input('>> ')
+        command_split = command.split()
         try:
             if command_split[0] == 'quit':
                 if quit() == True:
                     print ('Goodbye!')
                     break
-                else:
-                    raise IndexError
+            if command == 'stu':
+                student_average()
         except IndexError:
-            print ('Enter a command or \'quit\' to quit')
-            command = input('>> ')
-            command_split = command.split()
+            True
 
 
-main()
+
+if __name__ == '__main__':
+    main()
+    #student_average()
