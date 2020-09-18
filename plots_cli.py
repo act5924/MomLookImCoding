@@ -46,6 +46,22 @@ def print_average():
             True
         except ValueError:
             print ('GradeItem must be a number')
+        
+def class_average():
+    while True:
+        lst = input('Enter the... File (Enter to go bacK): ')
+        try:
+            if len(lst.split()) > 1:
+                raise IndexError
+            plots.plot_class_averages(lst)
+            print ('Plot is finished (window may be hidden)')
+            return True
+        except FileNotFoundError:
+            print ('No such file: ' + str(lst))
+            True
+        except IndexError:
+            print ('Usage for avg: <filename> (space) <Grade Item (#)>')
+            True
 
 
 def quit():
@@ -70,6 +86,8 @@ def main():
                 student_average()
             if command == 'avg':
                 print_average()
+            if command == 'cavg':
+                class_average()
         except IndexError:
             True
 
