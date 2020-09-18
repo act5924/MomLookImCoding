@@ -11,6 +11,8 @@ def student_average():
         if lst == '':
             return True
         try:
+            if len(bst) > 3:
+                raise IndexError
             if plots.plot_grades(bst[0], bst[1], bst[2]) == True:
                 print ('Plot finished (window may be hidden)')
                 return True
@@ -23,6 +25,27 @@ def student_average():
         except IndexError:
             print ('Usage for stu: <filename> (space) <first name> (space) <last name>')
             True
+
+def print_average():
+    while True:
+        lst = input('Enter the... File GradeItem(#) (Enter to go back): ')
+        bst = lst.split()
+        if lst == '':
+            return True
+        try:
+            if len(bst) > 2:
+                raise IndexError
+            col = int(bst[1])
+            print ('Average: ' + str(plots.get_average_new(bst[0], col)))
+            return True
+        except FileNotFoundError:
+            print ('No such file: ' + str(bst[0]))
+            True
+        except IndexError:
+            print ('Usage for avg: <filename> (space) <Grade Item (#)>')
+            True
+        except ValueError:
+            print ('GradeItem must be a number')
 
 
 def quit():
@@ -45,6 +68,8 @@ def main():
                     break
             if command == 'stu':
                 student_average()
+            if command == 'avg':
+                print_average()
         except IndexError:
             True
 
@@ -52,4 +77,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    #student_average()
+    #print_average()
