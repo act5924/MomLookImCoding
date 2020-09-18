@@ -83,7 +83,7 @@ def quit():
 def main():
     print ('>> ')
     while True:
-        print ('Enter a command or \'quit\' to quit')
+        print ('Enter a command(\'help\') or \'quit\' to quit')
         command = input('>> ')
         command_split = command.split()
         try:
