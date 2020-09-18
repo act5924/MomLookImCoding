@@ -50,6 +50,8 @@ def print_average():
 def class_average():
     while True:
         lst = input('Enter the... File (Enter to go bacK): ')
+        if lst == '':
+            return True
         try:
             if len(lst.split()) > 1:
                 raise IndexError
@@ -63,6 +65,13 @@ def class_average():
             print ('Usage for avg: <filename> (space) <Grade Item (#)>')
             True
 
+def help():
+    print ('stu --> <filename> (space) <first name> (space) <last name> - plot student grades')
+    print ('cavg --> <filename> - plot class average')
+    print ('avg --> <filename> <GradeItem(#)> - prints average of Grade Item')
+    print ('quit - quits')
+    print ('help - displays this message')
+    return True
 
 def quit():
     quit_quit = input('Are you sure (y/n) : ')
@@ -88,6 +97,8 @@ def main():
                 print_average()
             if command == 'cavg':
                 class_average()
+            if command == 'help':
+                help()
         except IndexError:
             True
 
