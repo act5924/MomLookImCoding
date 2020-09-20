@@ -80,9 +80,9 @@ def plot_grades(filename, first, last):
         next(lines)
         plotter.init(str(first) + ' ' + str(last), "Labs", "Score")
         for line in lines:
-            col = 2
-            if line[0] == last and line[1] == first:
-                for i in range(len(line) - 2):
+            col = 3
+            if re.findall(first and last, line[0]):
+                for i in range(len(line) - 3):
                     plotter.add_data_point(float(line[col]))
                     col += 1
                 plotter.plot()
@@ -103,8 +103,8 @@ def plot_class_averages(filename):
         var = input('Enter to continue: ')
 
 def main():
-    #plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
-    plot_class_averages('data/grades_010.csv')
+    plot_grades('data/full_grades_010.csv', 'Sion', 'Lobasso')
+    #plot_class_averages('data/grades_010.csv')
     #plot_class_averages('data/grades_363.csv')
     #print (lab_average('data/grades_010.csv', 'Sion', 'Lobasso'))
 
