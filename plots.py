@@ -4,6 +4,7 @@
 '''
 import plotter
 import csv
+import re
 
 def lab_average(filename, first, last):
     with open(filename) as file:
@@ -13,7 +14,8 @@ def lab_average(filename, first, last):
         count = 0
         for line in lines:
             col = 2
-            if line[0] == last and line[1] == first:
+            name = line[0]
+            if name[0] == last and name[1] == first:
                 for i in range(8):
                     #print (total_grade)
                     #print (fields[col])
