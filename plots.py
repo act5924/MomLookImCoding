@@ -74,14 +74,14 @@ def get_average_new(filename, col):
 
 def plot_grades(filename, first, last):
     with open(filename) as file:
-        header_fields = next(file).split(',')
+        lines = csv.reader(file)
+        next(lines)
         plotter.init(str(first) + ' ' + str(last), "Labs", "Score")
-        for line in file:
+        for line in lines:
             col = 2
-            fields = line.split(',')
-            if fields[0] == last and fields[1] == first:
-                for i in range(len(fields) - 2):
-                    plotter.add_data_point(float(fields[col]))
+            if line[0] == last and line[1] == first:
+                for i in range(len(line) - 2):
+                    plotter.add_data_point(float(line[col]))
                     col += 1
                 plotter.plot()
                 var = input('Enter to continue: ')
@@ -101,10 +101,10 @@ def plot_class_averages(filename):
         var = input('Enter to continue: ')
 
 def main():
-    #plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
+    plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
     #plot_class_averages('data/grades_010.csv')
     #plot_class_averages('data/grades_363.csv')
-    print (lab_average('data/grades_010.csv', 'Sion', 'Lobasso'))
+    #print (lab_average('data/grades_010.csv', 'Sion', 'Lobasso'))
 
 if __name__ == '__main__':
     main()
