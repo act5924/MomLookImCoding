@@ -45,30 +45,30 @@ def getcol(grade_item):
 
 def get_average(filename, grade_item):
     with open(filename) as file:
-        header_fields = next(file).split(',')
+        lines = csv.reader(file)
+        next(lines)
         col = getcol(grade_item)
         if col == None:
             return None
         total_grade = 0
         count = 0
-        for line in file:
-            fields = line.split(',')
-            if fields[col] == '':
-                fields[col] = 0
-            total_grade += float(fields[col])
+        for line in lines:
+            if line[col] == '':
+                line[col] = 0
+            total_grade += float(line[col])
             count += 1
         return total_grade/count
 
 def get_average_new(filename, col):
     with open(filename) as file:
-        header_fields = next(file).split(',')
+        lines = csv.reader(file)
+        next(lines)
         total_grade = 0
         count = 0
-        for line in file:
-            fields = line.split(',')
-            if fields[col] == '':
-                fields[col] = 0
-            total_grade += float(fields[col])
+        for line in lines:
+            if line[col] == '':
+                line[col] = 0
+            total_grade += float(line[col])
             count += 1
         return total_grade/count
 
@@ -101,8 +101,8 @@ def plot_class_averages(filename):
         var = input('Enter to continue: ')
 
 def main():
-    plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
-    #plot_class_averages('data/grades_010.csv')
+    #plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
+    plot_class_averages('data/grades_010.csv')
     #plot_class_averages('data/grades_363.csv')
     #print (lab_average('data/grades_010.csv', 'Sion', 'Lobasso'))
 
