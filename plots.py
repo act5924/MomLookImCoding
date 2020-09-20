@@ -99,8 +99,8 @@ def plot_class_averages(filename):
     with open(filename) as file:
         header_fields = next(file).split(',')
         plotter.init("Class Average(" + str(filename) + ')', "Labs", "Score")
-        col = 2
-        for i in range(16):
+        col = 3
+        for i in range(27):
             plotter.add_data_point(float(get_average_new(filename, col)))
             col += 1
         plotter.plot()
@@ -108,8 +108,8 @@ def plot_class_averages(filename):
 
 def main():
     plot_grades('data/full_grades_010.csv', 'Sion', 'Lobasso')
-    #plot_class_averages('data/grades_010.csv')
-    #plot_class_averages('data/grades_363.csv')
+    plot_class_averages('data/full_grades_010.csv')
+    plot_class_averages('data/full_grades_999.csv')
     #print (lab_average('data/grades_010.csv', 'Sion', 'Lobasso'))
 
 if __name__ == '__main__':
