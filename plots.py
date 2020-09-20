@@ -15,12 +15,12 @@ def lab_average(filename, first, last):
         for line in lines:
             col = 3
             if re.findall(first and last, line[0]):
-                for i in range(8):
+                for i in range(10):
                     #print (total_grade)
-                    #print (fields[col])
+                    #print (line[col])
                     total_grade += float((line[col]))
                     col += 1
-                return total_grade/8
+                return total_grade/10
         return None
 
 
