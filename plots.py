@@ -3,6 +3,7 @@
    Arthur Tonoyan
 '''
 import plotter
+import csv
 
 
 def lab_average(filename, first, last):
