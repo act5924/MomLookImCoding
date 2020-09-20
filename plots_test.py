@@ -14,10 +14,10 @@ def lab_average_test_None():
     print ("Lab_average_test_None passed...")
 
 def get_average_test_Lab6():
-    testing.assert_floats('get_average', 67.77, plots.get_average('data/grades_010.csv', 'Lab 6'), 0.05, True)
+    testing.assert_floats('get_average', 69.96, plots.get_average('data/full_grades_010.csv', 'Lab 6'), 0.05, True)
 
 def get_average_test_Lab3():
-    testing.assert_floats('get_average', 82.61, plots.get_average('data/grades_010.csv', 'Lab 3'), 0.05, True)
+    testing.assert_floats('get_average', 67.53, plots.get_average('data/full_grades_010.csv', 'Lab 3'), 0.05, True)
 
 def get_average_test_None():
     assert(plots.get_average('data/grades_010.csv', 'Lab 137') == None)
@@ -31,9 +31,9 @@ def plot_grades_test_Jasmin():
 
 def main():
     #lab_average_test()
-    lab_average_test_None()
-    #get_average_test_Lab6()
-    #get_average_test_Lab3()
+    #lab_average_test_None()
+    get_average_test_Lab6()
+    get_average_test_Lab3()
     #get_average_test_None()
     #plot_grades_test_Sion()
     #plot_grades_test_Jasmin()

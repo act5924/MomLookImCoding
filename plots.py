@@ -41,6 +41,10 @@ def getcol(grade_item):
         return 8
     if grade_item == 'Lab 8':
         return 9
+    if grade_item == 'Lab 9':
+        return 10
+    if grade_item == 'Lab 10':
+        return 11
     else:
         return None
 
@@ -49,7 +53,7 @@ def get_average(filename, grade_item):
     with open(filename) as file:
         lines = csv.reader(file)
         next(lines)
-        col = getcol(grade_item)
+        col = getcol(grade_item) + 1
         if col == None:
             return None
         total_grade = 0
