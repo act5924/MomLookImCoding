@@ -5,20 +5,19 @@
 import plotter
 import csv
 
-
 def lab_average(filename, first, last):
     with open(filename) as file:
-        header_fields = next(file).split(',')
+        lines = csv.reader(file)
+        next(lines)
         total_grade = 0
         count = 0
-        for line in file:
-            fields = line.split(',')
+        for line in lines:
             col = 2
-            if fields[0] == last and fields[1] == first:
+            if line[0] == last and line[1] == first:
                 for i in range(8):
                     #print (total_grade)
                     #print (fields[col])
-                    total_grade += float((fields[col]))
+                    total_grade += float((line[col]))
                     col += 1
                 return total_grade/8
         return None
@@ -102,9 +101,10 @@ def plot_class_averages(filename):
         var = input('Enter to continue: ')
 
 def main():
-    plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
-    plot_class_averages('data/grades_010.csv')
-    plot_class_averages('data/grades_363.csv')
+    #plot_grades('data/grades_010.csv', 'Sion', 'Lobasso')
+    #plot_class_averages('data/grades_010.csv')
+    #plot_class_averages('data/grades_363.csv')
+    print (lab_average('data/grades_010.csv', 'Sion', 'Lobasso'))
 
 if __name__ == '__main__':
     main()
