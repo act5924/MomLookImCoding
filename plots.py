@@ -13,9 +13,8 @@ def lab_average(filename, first, last):
         total_grade = 0
         count = 0
         for line in lines:
-            col = 2
-            name = line[0]
-            if name[0] == last and name[1] == first:
+            col = 3
+            if re.findall(first and last, line[0]):
                 for i in range(8):
                     #print (total_grade)
                     #print (fields[col])
@@ -23,6 +22,7 @@ def lab_average(filename, first, last):
                     col += 1
                 return total_grade/8
         return None
+
 
 def getcol(grade_item):
     if grade_item == 'Lab 1':
